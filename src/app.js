@@ -10,7 +10,7 @@ const routes = {
                 <button type="submit">Enviar</button>
             </form>
         </div>`,
-    '/about': '<p1>Acerca de esta página</p1><p2>Aplicación creada para hablar tu amigable vecino...Spider-Man, también conocido como el Hombre Araña.</p2>'
+    '/about': '<p1>Acerca de esta página</p1><p2>Aplicación creada para hablar tu amigable vecino...Spider-Man, también conocido como el Hombre Araña. Se eligió este personaje por su gran humor sarcastico, su buen corazon y su capacidad para tejer telarañas.</p2>'
 };
 
 function navigateTo(url) {
@@ -20,7 +20,7 @@ function navigateTo(url) {
 
 function router() {
     const path = window.location.pathname === '/' ? '/home' : window.location.pathname;
-    const content = routes[path] || '<p>404 - No encontrado</p>';
+    const content = routes[path] || '<p1>Haz click en </p1><p2>"INICIO"</p2><p1>para recibir una bienvenida. Click en</p1><p2>"CHAT"</p2><p1>para comenzar a hablar con Spider-Man o click en</p1><p2>"ABOUT"</p2><p1>para saber más sobre la página</p1>';
     
     document.getElementById('app').innerHTML = content;
 
