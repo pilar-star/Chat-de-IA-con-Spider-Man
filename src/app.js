@@ -22,10 +22,13 @@ function router() {
     const path = window.location.pathname === '/' ? '/home' : window.location.pathname;
     const content = routes[path] || '<h1>404 - No encontrado</h1>';
     
-    document.getElementById('app').innerHTML = content;
+    document.getElementById('app').innerHTML = path;
 
     if (path === '/chat') {
         initChat();
+    }
+    if (path === '/home') {
+        document.getElementById('app').innerHTML = routes['/home'];
     }
 }
 
