@@ -1,7 +1,7 @@
 import { initChat } from './chat.js';
 
 const routes = {
-    '/home': '<h1>Bienvenide a ComicSansCon</h1>',
+    '/home': '<p1>BIENVENIDO</p1><p2>Esta página fue pensada y construida para hablar con el mejor héroe de la historia de los héroes, así que adelante:</p2><a href="/chat" id="iniciochat">¡Chatea con...Spider-Man!</a>',
     '/chat': `
         <div class="chat-container">
             <div id="chat-messages" class="messages-area"></div>
@@ -10,7 +10,7 @@ const routes = {
                 <button type="submit">Enviar</button>
             </form>
         </div>`,
-    '/about': '<h1>Acerca de esta página</h1><p>Aplicación creada para hablar tu amigable vecino...Spider-Man, también conocido como el Hombre Araña.</p>'
+    '/about': '<p1>Acerca de esta página</p1><p2>Aplicación creada para hablar tu amigable vecino...Spider-Man, también conocido como el Hombre Araña.</p2>'
 };
 
 function navigateTo(url) {
@@ -20,15 +20,12 @@ function navigateTo(url) {
 
 function router() {
     const path = window.location.pathname === '/' ? '/home' : window.location.pathname;
-    const content = routes[path] || '<h1>404 - No encontrado</h1>';
+    const content = routes[path] || '<p>404 - No encontrado</p>';
     
-    document.getElementById('app').innerHTML = path;
+    document.getElementById('app').innerHTML = content;
 
     if (path === '/chat') {
         initChat();
-    }
-    if (path === '/home') {
-        document.getElementById('app').innerHTML = routes['/home'];
     }
 }
 
