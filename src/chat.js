@@ -20,20 +20,25 @@ export function initChat() {
         loadingPrompt.innerText = "Spider-Man está escribiendo...";
         messagesArea.appendChild(loadingPrompt);
 
-        setTimeout(() => {
+        try {
+            const response = await fetch('/api/functions.js', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ history: chatHistory })
+            });
+
+            if (!response.ok) throw new Error('Error en la API');
+            const data = await response.json();
+            chatHistory.push({ role: 'model', parts: [{ text: data.reply }] });
+        } catch (error) {
+            alert('¡Oh no! Parece que se cortó la telaraña de internet. Intenta de nuevo.');
+        } finally {
             loadingPrompt.remove();
-            const respuestasSpidey = [
-                "¡Hola! Ojalá mis lanzarredes funcionaran tan rápido como escribes.",
-                "¡Por todos los cielos! Eso suena como un problema para el amigable vecino Spider-Man.",
-                "Lo siento, estaba combatiendo al Duende Verde. ¿Qué me decías?",
-                "¡Un gran poder conlleva una gran responsabilidad... de responder este chat!"
-            ];
-            const respuestaAleatoria = respuestasSpidey[Math.floor(Math.random() * respuestasSpidey.length)];
-            chatHistory.push({ role: 'model', parts: [{ text: respuestaAleatoria }] });
             renderMessages(messagesArea);
-        }, 1500); 
+        }
     });
 }
+
 function renderMessages(container) {
     container.innerHTML = chatHistory.map(msg => `
         <div class="message ${msg.role === 'user' ? 'user-msg' : 'spidey-msg'}">
