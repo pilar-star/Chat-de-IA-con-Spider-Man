@@ -1,0 +1,23 @@
+{
+  "name": "chat-gemini",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1-security.1",
+    "@google/generative-ai": "^0.24.1",
+    "D": "^1.0.0",
+    "jsdom": "^29.1.1",
+    "vitest": "^4.1.9"
+  }
+}
