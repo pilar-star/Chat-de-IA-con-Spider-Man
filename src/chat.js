@@ -24,7 +24,7 @@ export function initChat() {
         messagesArea.appendChild(loadingPrompt);
 
         try {
-            const response = await fetch('/api/functions.js', {
+            const response = await fetch('/api/functions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ history: chatHistory })
