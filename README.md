@@ -2,6 +2,7 @@
 ---
 Bienvenidos a **ComicSansCon**, una aplicación web interactiva tipo SPA (Single Page Application) diseñada específicamente para comunicarte de forma directa con tu amigable vecino, **Spider-Man**. 
 La inteligencia artificial detrás de Spidey está configurada para capturar toda su esencia de los cómics: entusiasmo, chistes ingeniosos, sarcasmo en momentos inoportunos y un gran sentido de la responsabilidad.
+
 ---
 ## 📁 Estructura del Proyecto
 * *index.html* - El lienzo único donde se renderizan las vistas de la aplicación.
@@ -44,6 +45,7 @@ Para que Spider-Man no sufra de amnesia a mitad de la conversación, la aplicaci
 
 ### 3. System Instruction & Prompt Engineering
 La personalidad se inyecta directamente desde el backend mediante `systemInstruction`. Se calibra con una **temperatura de 0.6** para darle el balance justo entre coherencia narrativa y destellos de creatividad/humor arácnido, limitando las respuestas a un `max_tokens: 100` para emular mensajes cortos de chat de texto.
+
 ---
 ## ⚙️ Instalación y Configuración
 ### Configura tus variables de entorno:
@@ -54,15 +56,19 @@ GEMINI_API_KEY=tu_api_key_aqui
 Usando Vercel CLI (recomendado para simular las Serverless Functions de /api):
 Bash
 vercel dev
+
 ---
 ## 🚀 Forma de Uso
-### Al ingresar, serás recibido en la sección Inicio, donde se te invita formalmente a iniciar la aventura. Haz clic en ¡Chatea con...Spider-Man! o dirígete a la pestaña Chat en el menú de navegación. Escribe tu mensaje en la caja inferior y presiona "Enviar". Verás un indicador de estado ("Spider-Man está escribiendo...") mientras nuestro héroe te responde directamente desde Nueva York.
+Al ingresar, serás recibido en la sección Inicio, donde se te invita formalmente a iniciar la aventura. Haz clic en ¡Chatea con...Spider-Man! o dirígete a la pestaña Chat en el menú de navegación. Escribe tu mensaje en la caja inferior y presiona "Enviar". Verás un indicador de estado ("Spider-Man está escribiendo...") mientras nuestro héroe te responde directamente desde Nueva York.
+
 ---
 ## 🧪 Estrategia de Testing
-### El proyecto viene preconfigurado con soporte robusto para pruebas utilizando Vitest. La presencia de dependencias como jsdom en el archivo package.json te permite escribir aserciones complejas que verifiquen el comportamiento de los componentes del frontend y de funciones utilitarias. Para ejecutar la suite de pruebas automatizada, simplemente corre en tu terminal:
+El proyecto viene preconfigurado con soporte robusto para pruebas utilizando Vitest. La presencia de dependencias como jsdom en el archivo package.json te permite escribir aserciones complejas que verifiquen el comportamiento de los componentes del frontend y de funciones utilitarias. 
+
 ---
 ## 🗺️ Próximas Mejoras
-### Persistencia Local (LocalStorage): Guardar el historial de conversaciones del usuario en el navegador para que no se pierdan al recargar accidentalmente la página.
-### Manejo de Respuestas Multimedia: Integrar enlaces de imágenes o GIFs cómicos dentro de las respuestas generadas por la IA.
+ Persistencia Local (LocalStorage): Guardar el historial de conversaciones del usuario en el navegador para que no se pierdan al recargar accidentalmente la página.
+ Manejo de Respuestas Multimedia: Integrar enlaces de imágenes o GIFs cómicos dentro de las respuestas generadas por la IA.
+ 
 ---
 Creado con ❤️ y entusiasmo arácnido por Pilar Lugones en el año 2026. 🕸️
