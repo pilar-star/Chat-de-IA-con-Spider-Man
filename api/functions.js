@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
     const result = await model.generateContent({
       contents: history,
-      config: generationConfig
+      generationConfig: generationConfig
     });
 
     const replyText = result.response.text();

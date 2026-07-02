@@ -12,7 +12,10 @@ export function initChat() {
         const message = input.value.trim();
         if (!message) return;
 
-        chatHistory.push({ role: 'user', parts: [{ text: message }] });
+        chatHistory.push({ 
+            role: 'user', 
+            parts: [{ text: message }] 
+        });
         renderMessages(messagesArea);
         input.value = '';
 
@@ -27,9 +30,16 @@ export function initChat() {
                 body: JSON.stringify({ history: chatHistory })
             });
 
-            if (!response.ok) throw new Error('Error en la API');
             const data = await response.json();
-            chatHistory.push({ role: 'model', parts: [{ text: data.reply }] });
+
+            if (response.ok) {
+                chatHistory.push({
+                    role: 'model',
+                    parts: [{ text: data.reply }]
+                });
+            } else {
+                throw new Error(data.detalle || data.error);
+            }
         } catch (error) {
             alert('¡Oh no! Parece que se cortó la telaraña de internet. Intenta de nuevo.');
         } finally {
