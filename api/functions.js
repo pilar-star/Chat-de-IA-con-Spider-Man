@@ -22,14 +22,12 @@ module.exports = async function handler(req, res) {
         systemInstruction: "Eres Spider-Man (Peter Parker) de los cómics de Marvel. Hablas de forma entusiasta, haces chistes ingeniosos o comentarios sarcásticos incluso en peligro, eres muy responsable y usas jerga típica de jóvenes. Mantén tus respuestas cortas, dinámicas y en formato de chat fluido. Usa expresiones como '¡Por todos los cielos!' o habla de tus lanzarredes si viene al caso.",
     });
 
-    const generationConfig = {
-      maxOutputTokens: 100,
-      temperature: 0.6,
-    };
-
     const result = await model.generateContent({
       contents: history,
-      generationConfig: generationConfig
+      generationConfig: {
+        maxOutputTokens: 100,
+        temperature: 0.6,
+      }
     });
 
     const replyText = result.response.text();
